@@ -1,0 +1,248 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.16/svg.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+        <script src="js/stickfigureparty.js"></script>    
+    </head>
+    <style>
+        body{
+            font-family: sans-serif;
+            text-align: center;
+        }
+        #main{
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+<body>
+  <div id="main">
+    <h3>Your basic stick figure, generated randomly.</h3>
+    <div id="basic-example"></div>
+    <script>
+        StickFigureParty.add_stick_figure('#basic-example');
+    </script>
+
+    <!-- <h3>Stick figures of different sizes</h3>
+    <div id="size-example"></div>
+    <script>
+        StickFigureParty.add_stick_figure(
+            '#size-example',
+            null,
+            {
+                size : 50,
+                fill : "purple",
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            '#size-example',
+            null,
+            {
+                size : 75,
+                fill : "red",
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            '#size-example',
+            null,
+            {
+                size : 100,
+                fill : "yellow",
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            '#size-example',
+            null,
+            {
+                size : 150,
+                fill : "lightgreen",
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            '#size-example',
+            null,
+            {
+                size : 200,
+                fill : "lightblue",
+            }
+        );
+    </script> -->
+
+    <h3>...in different colors</h3>
+    <div id="color-example"></div>
+    <script>
+        StickFigureParty.add_stick_figure(
+            '#color-example',
+            null,
+            {color : "red"}
+        );
+        StickFigureParty.add_stick_figure(
+            '#color-example',
+            null,
+            {color : "green"}
+        );
+        StickFigureParty.add_stick_figure(
+            '#color-example',
+            null,
+            {color : "blue"}
+        );
+    </script>
+
+    <h3>...with background colors</h3>
+    <div id="fill-example"></div>
+    <script>
+        StickFigureParty.add_stick_figure(
+            '#fill-example',
+            null,
+            {fill : "pink"}
+        );
+        StickFigureParty.add_stick_figure(
+            '#fill-example',
+            null,
+            {fill : "#ffb"}
+        );
+        StickFigureParty.add_stick_figure(
+            '#fill-example',
+            null,
+            {fill : "lightgreen"}
+        );
+        StickFigureParty.add_stick_figure(
+            '#fill-example',
+            null,
+            {fill : "lightblue"}
+        );
+        StickFigureParty.add_stick_figure(
+            '#fill-example',
+            null,
+            {fill : "#fdf"}
+        );
+    </script>
+
+    <h3>Stick figures from generated the same control points</h3>
+    <div id="control-points-example"></div>
+    <script>
+        let control_points = StickFigureParty.generate_control_points()
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-example',
+            control_points = control_points
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-example',
+            control_points = control_points
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-example',
+            control_points = control_points
+        );
+    </script>
+
+    <h3>...with control points visible</h3>
+    <div id="control-points-example-2"></div>
+    <script>
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-example-2',
+            control_points = control_points,
+            {
+                show_control_points : true,
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-example-2',
+            control_points = control_points,
+            {
+                color: "green",
+                show_control_points : true,
+                control_point_color : "green",
+                control_point_opacity : 0.5,
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-example-2',
+            control_points = control_points,
+            {
+                fill: "#ddf",
+                color: "#00f",
+                show_control_points : true,
+                control_point_color : "blue",
+                control_point_opacity : 0.5,
+            }
+        );
+    </script>
+
+    <h3>By default, figures are generated in your browser.</h3>
+    <h3>Random numbers can be seeded. (These all have seed=0)</h3>
+    <div id="control-points-rand-seeds"></div>
+    <script>
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-rand-seeds',
+            null,
+            {
+                seed : 0,
+                show_control_points : false,
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-rand-seeds',
+            null,
+            {
+                seed : 0,
+                show_control_points : false,
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-rand-seeds',
+            null,
+            {
+                seed : 0,
+                show_control_points : false,
+            }
+        );
+    </script>
+
+    <h3>But some auto-generated stick figures are malformed.</h3>
+    <div id="control-points-malformed-1"></div>
+    <div id="control-points-malformed-2"></div>
+    <script>
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-malformed-1',
+            null,
+            {
+                seed : 7,
+                show_control_points : false,
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-malformed-1',
+            null,
+            {
+                seed : 60,
+                show_control_points : false,
+            }
+        );
+        StickFigureParty.add_stick_figure(
+            dom_element_id = '#control-points-malformed-1',
+            null,
+            {
+                seed : 68,
+                show_control_points : false,
+            }
+        );
+
+        // for(var i=0; i<10; i++){
+        //     StickFigureParty.add_stick_figure(
+        //         dom_element_id = '#control-points-malformed-2',
+        //         null,
+        //         {
+        //             seed : 60+i,
+        //             show_control_points : false,
+        //         }
+        //     );
+        // }
+    </script>
+
+    <h3>If you want to guarantee clean, well-formed stick figures,<br>
+        please check out <a href="www.stickfigureparty.com">www.stickfigureparty.com</a>.<br><br>
+        It provides tools for curation, with the eventual goal of producing<br>
+        an infinite supply of clean, expressive stick figures.</h3>
+  </div>
+</body>
+</html>
